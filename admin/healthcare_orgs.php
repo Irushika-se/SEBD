@@ -1,0 +1,6 @@
+<?php require_once __DIR__.'/../includes/auth.php'; require_role('ADMIN');
+$rows=$pdo->query("SELECT o.*,u.email,u.status ustatus FROM healthcare_organizations o JOIN users u USING(user_id) ORDER BY o.created_at DESC")->fetchAll();
+$title='Healthcare Organizations'; require '../includes/header.php'; ?>
+<input id="tsearch" placeholder="Search table..."><br><br><div class="tw"><table class="searchable"><thead><tr><th>Name</th><th>Type</th><th>Reg. no.</th><th>City</th><th>Email</th><th>Phone</th><th>Verification</th><th>Certificate</th><th>Rejection reason</th><th>Account</th></tr></thead><tbody>
+<?php foreach($rows as $o): ?><tr><td><?= h($o['organization_name']) ?></td><td><?= h($o['organization_type']) ?></td><td><?= h($o['registration_number']) ?></td><td><?= h($o['city']) ?></td><td><?= h($o['email']) ?></td><td><?= h($o['phone']) ?></td><td><?= badge($o['verification_status']) ?></td><td><?= org_cert_valid_name($o['certificate_file']) ? '<a class="btn sm alt" target="_blank" rel="noopener" href="org_document.php?id='.(int)$o['organization_id'].'">View</a>' : '-' ?></td><td><?= h($o['rejection_reason']) ?></td><td><?= badge($o['ustatus']) ?></td></tr><?php endforeach; ?></tbody></table></div>
+<?php require '../includes/footer.php';
