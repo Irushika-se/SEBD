@@ -32,3 +32,4 @@ desktop.ini
 # Local development files
 .wamp/
 
+/config/database.php
