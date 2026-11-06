@@ -1,1 +1,34 @@
 
+# Environment and sensitive configuration
+.env
+.env.*
+!.env.example
+
+# Local database and backup files
+*.sql~
+*.bak
+*.backup
+
+# Logs
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and editor settings
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+
+# PHP dependencies
+/vendor/
+
+# Local development files
+.wamp/
+
