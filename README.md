@@ -100,7 +100,13 @@ SEBD/
 5. Open phpMyAdmin.
 6. Create a MySQL database for the project.
 7. Import the SQL file available in the `database/` directory.
-8. Configure the database connection using the appropriate settings in the `config/` directory.
+   Configure the database connection:
+
+      1. Navigate to the `config/` directory.
+      2. Copy `database.example.php`.
+      3. Rename the copied file to `database.php`.
+      4. Update the database credentials according to your local environment.
+      5. Save the configuration file.
 9. Open the application in your browser:
 
   
